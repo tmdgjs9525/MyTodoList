@@ -49,7 +49,7 @@ function AddTodoListForm(props) {
           var items = [...props.todoList];
           items.push(new TodoItem(new Date().toLocaleDateString(),todoHead,todoItems));
           props.setTodoList(items);
-          console.log(todoItems);
+          props.setAddTodoListButtonClicked(false);
         }}>+</Button>
     </>
   );

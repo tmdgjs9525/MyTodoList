@@ -6,20 +6,19 @@ import TopBar from '../Header/TopBar';
 import TodoList from '../TodoItem/TodoList';
 import TodoItem from '../Models/TodoItem';
 import './MainPage.css'
-import { Stack } from 'react-bootstrap';
+import { Collapse, Stack } from 'react-bootstrap';
 import AddTodoListButton from '../TodoItem/AddTodoListButton';
 import AddTodoListForm from '../TodoItem/AddTodoListForm';
 function GenTodoList(){
   let date = new Date().toLocaleDateString();
-  
   let todoList = []
   todoList.push(new TodoItem(
     date,"오늘의 할 일",["출근하기","토이프로젝트 진행하기","강아지 산책하기"]));
-
-    for (let index = 0; index < 4; index++) {
-      todoList.push(new TodoItem(
-        date,"특별한 날",["출근하기","토이프로젝트 진행하기","강아지 산책하기"]));
-    }
+  todoList.push(new TodoItem(
+    date,"특별한 날",["생일케이크 먹기","외식하기","강아지 산책하기"]));
+  todoList.push(new TodoItem(
+    date,"노는 날",["친구 만나기","게임하기","토이프로젝트 진행하기"]));
+  
  
   return todoList;
 }
@@ -46,7 +45,7 @@ function MainPage(props){
         </Col>
       </Row>
       <Row style={{marginBottom:'100px',justifyContent:'flex-end'}}>
-        {AddTodoListButtonClicked == true ? <AddTodoListForm todoList={todoList} setTodoList={setTodoList}/> : null}
+        {AddTodoListButtonClicked == true ? <AddTodoListForm todoList={todoList} setTodoList={setTodoList} setAddTodoListButtonClicked={setAddTodoListButtonClicked}/> : null}
       </Row>
       <Row >
         <Col>
@@ -54,7 +53,6 @@ function MainPage(props){
             todoList.map((item ,i)=>{
               const index = i*2;
               const secIndex = i*2+1;
-              console.log(todoList[index]);
               return(
                 <Stack direction="horizontal" gap={5} style={{justifyContent:'flex-start'}}>
                   {
@@ -65,7 +63,7 @@ function MainPage(props){
                   }
                   {
                     todoList[secIndex] != null && 
-                    <TodoList key={index} 
+                    <TodoList key={secIndex} 
                         todoList ={todoList[secIndex]} 
                         deleteTodoList={deleteTodoList}/>
                   }

@@ -6,10 +6,11 @@ import AddTodoListForm from './AddTodoListForm';
 function TodoList(props){
  return(
   <Card style={{width:'18rem', marginBottom:'50px', minHeight:'262px'}}>
-    <Card.Body>
+    <Card.Body >
       {renderTodoTitle(props.todoList.title)}
       {renderTodoList(props.todoList.todoList)}
-      <Card.Footer className="d-flex" style={{justifyContent:"space-between"}}>
+    </Card.Body>
+    <Card.Footer className="d-flex" style={{justifyContent:"space-between"}}>
         <Card.Text style={{textAlign:'center'}}>{props.todoList.date}</Card.Text>
         <div>
           <PlusLg style={{cursor:'pointer'}} onClick={()=>{
@@ -18,10 +19,7 @@ function TodoList(props){
               props.deleteTodoList(props.todoList);
           }}/>
         </div>
-        
       </Card.Footer>
-      
-    </Card.Body>
   </Card>
       
  )
@@ -46,12 +44,7 @@ function renderTodoTitle(title){
               setIsTextHovered(false);
             }}
             onClick={()=>{
-              if(isTextClicked){
-                setIsTextClicked(false);
-              }
-              else{
-                setIsTextClicked(true);
-              }
+                setIsTextClicked(!isTextClicked);
             }}  
           style={{cursor:'pointer',color: isTextHovered ? '#6cc551':'gray',transition:'color 0.3s'}}>
             {isTextClicked == true ? <del>{item}</del> : item}
