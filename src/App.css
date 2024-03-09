@@ -1,0 +1,33 @@
+.App {
+  text-align: start;
+}
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@font-face {
+  font-family: 'Ownglyph_meetme-Rg';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+body{
+  font-family: "Ownglyph_meetme-Rg";
+}
+
+p{
+  font-family: "Ownglyph_meetme-Rg";
+}
