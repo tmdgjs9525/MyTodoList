@@ -8,7 +8,7 @@ function TodoList(props){
   <Card style={{width:'18rem', marginBottom:'50px', minHeight:'262px'}}>
     <Card.Body >
       {renderTodoTitle(props.todoList.title)}
-      {renderTodoList(props.todoList.todoList)}
+      {renderTodoItems(props.todoList.todoList)}
     </Card.Body>
     <Card.Footer className="d-flex" style={{justifyContent:"space-between"}}>
         <Card.Text style={{textAlign:'center'}}>{props.todoList.date}</Card.Text>
@@ -30,7 +30,7 @@ function renderTodoTitle(title){
     <Card.Text style={{fontSize:'25px'}}>{title}</Card.Text>
   )
  }
- function renderTodoList(todoList){
+ function renderTodoItems(todoList){
   return(
     todoList.map((item,i)=>{
       let [isTextHovered,setIsTextHovered] = useState(false);
