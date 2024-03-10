@@ -2,10 +2,8 @@ import { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import TopBar from '../Header/TopBar';
 import TodoList from '../TodoItem/TodoList';
-import TodoItem from '../Models/TodoItem';
-import './MainPage.css'
+import TodoItem from '../../Models/TodoItem';
 import { Collapse, Stack } from 'react-bootstrap';
 import AddTodoListButton from '../TodoItem/AddTodoListButton';
 import AddTodoListForm from '../TodoItem/AddTodoListForm';
@@ -23,7 +21,7 @@ function GenTodoList(){
   return todoList;
 }
 
-function MainPage(props){
+function MainContent(props){
   let [todoList, setTodoList] = useState(GenTodoList());
   let [AddTodoListButtonClicked,setAddTodoListButtonClicked] = useState(false);
   const deleteTodoList = (TodoList) => {
@@ -34,10 +32,7 @@ function MainPage(props){
   };
   return(
     <Container>
-      <Row style={{marginBottom:'100px'}}>
-        <Col>
-          <TopBar />
-        </Col>
+      <Row >
         <Col className="text-end">
           <AddTodoListButton 
             AddTodoListButtonClicked={AddTodoListButtonClicked} 
@@ -75,4 +70,4 @@ function MainPage(props){
     </Container>
   )
 }
-export default MainPage;
+export default MainContent;
